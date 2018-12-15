@@ -19,9 +19,8 @@ public class CharacterFactory {
     }
 
     @SneakyThrows
-    public static Character createCharacter(){
+    public Character createCharacter(){
         return hm.get(Config.random.nextInt(hm.size())).newInstance();
-
     }
 }
 

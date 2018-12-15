@@ -1,5 +1,8 @@
 package Characters;
 
+import KickBehaviour.GodBehaviour;
+import KickBehaviour.MagicBehaviour;
+
 public class Elf extends Character{
 
     public Elf(){
@@ -8,12 +11,13 @@ public class Elf extends Character{
 
      public void kick(Character character){
          if(character.getPower() < this.getPower()){
-             character.setHp(0);
-             System.out.println(character + " killed!");
+             setBehaviour(new GodBehaviour());
+             getBehaviour().kick(this, character);
          }
          else
              {
-                 character.setHp(character.getHp() - 1);
+                 setBehaviour(new MagicBehaviour());
+                 getBehaviour().kick(this, character);
              }
      }
 }

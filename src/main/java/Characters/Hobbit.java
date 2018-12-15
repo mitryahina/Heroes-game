@@ -1,17 +1,14 @@
 package Characters;
 
+import KickBehaviour.WeakBehaviour;
+
 public class Hobbit extends Character {
 
     public Hobbit(){
-        super(0, 3);
+        super(0, 3, new WeakBehaviour());
     }
 
     public void kick(Character character){
-        toCry();
+        getBehaviour().kick(this, character);
     }
-
-    private void toCry(){
-        System.out.println("Cry cry cry");
-    }
-
 }

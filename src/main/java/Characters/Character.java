@@ -1,32 +1,34 @@
 package Characters;
 
-
 import KickBehaviour.Behaviour;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
-import java.util.Random;
 
-@ToString
 public abstract class Character {
     @Getter @Setter
     private int power;
-    public static Random random = new Random();
     @Getter
     private int hp;
     @Setter @Getter
     private Behaviour behaviour;
     public abstract void kick(Character character);
 
-    public boolean isAlive(){
+    public boolean isAlive()
+    { if (hp == 0){
+        System.out.println(getClass().getSimpleName() + " killed!");
+    }
         return hp > 0;
     }
 
     public Character(int power, int hp){
         this.power = power;
         this.hp = hp;
+    }
+    public Character(int power, int hp, Behaviour b){
+        this.power = power;
+        this.hp = hp;
+        this.behaviour = b;
     }
 
     public void setHp(int hp){
@@ -36,5 +38,9 @@ public abstract class Character {
         else {
             this.hp = hp;
         }
+    }
+
+    public String toString(){
+        return getClass().getSimpleName() + "(hp: " + getHp() + ", power: " + getPower() + ")";
     }
 }

@@ -1,6 +1,8 @@
 package Characters;
 
-import KickBehaviour.Behaviour;
+import KickBehaviour.RandomBehaviour;
+
+import static config.Config.random;
 
 public class SwordsMan extends Character {
     public SwordsMan(int min, int max){
@@ -9,7 +11,7 @@ public class SwordsMan extends Character {
     }
 
     public void kick(Character character) {
-        character.setHp(character.getHp() - random.nextInt(this.getPower() + 1));
-        Behaviour  b = getBehaviour();
+        setBehaviour(new RandomBehaviour());
+        getBehaviour().kick(this, character);
     }
 }

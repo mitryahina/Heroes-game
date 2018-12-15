@@ -1,8 +1,9 @@
 package KickBehaviour;
 import Characters.Character;
 
-public class OrdinaryBehaviour implements Behaviour {
+public class MagicBehaviour implements Behaviour {
     public void kick(Character main, Character enemy) {
-        enemy.setHp(main.getHp() - main.getPower());
+        enemy.setPower(enemy.getPower() - 1);
     }
 }
+
